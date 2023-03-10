@@ -15,7 +15,7 @@ use Manticoresearch\Backup\Lib\FileStorage;
 use Manticoresearch\Backup\Lib\ManticoreBackup;
 use Manticoresearch\Backup\Lib\ManticoreClient;
 use Manticoresearch\Backup\Lib\ManticoreConfig;
-use Manticoresearch\Buddy\Core\Plugin\Executor as BaseExecutor;
+use Manticoresearch\Buddy\Core\Plugin\BaseHandler;
 use Manticoresearch\Buddy\Core\Task\Task;
 use Manticoresearch\Buddy\Core\Task\TaskResult;
 use parallel\Runtime;
@@ -23,14 +23,14 @@ use parallel\Runtime;
 /**
  * This is the class to handle BACKUP ... SQL command
  */
-class Executor extends BaseExecutor {
+class Handler extends BaseHandler {
   /**
    *  Initialize the executor
    *
-   * @param Request $request
+   * @param Payload $payload
    * @return void
    */
-	public function __construct(protected Request $request) {
+	public function __construct(protected Payload $payload) {
 	}
 
   /**
@@ -42,19 +42,19 @@ class Executor extends BaseExecutor {
 	public function run(Runtime $runtime): Task {
 		// We run in a thread anyway but in case if we need blocking
 		// We just waiting for a thread to be done
-		$isAsync = $this->request->options['async'] ?? false;
+		$isAsync = $this->payload->options['async'] ?? false;
 		$method = $isAsync ? 'deferInRuntime' : 'createInRuntime';
 
 		$task = Task::$method(
 			$runtime,
-			static function (Request $request): TaskResult {
-				$config = new ManticoreConfig($request->configPath);
+			static function (Payload $payload): TaskResult {
+				$config = new ManticoreConfig($payload->configPath);
 				$client = new ManticoreClient($config);
 				$storage = new FileStorage(
-					$request->path,
-					$request->options['compress'] ?? false
+					$payload->path,
+					$payload->options['compress'] ?? false
 				);
-				ManticoreBackup::run('store', [$client, $storage, $request->tables]);
+				ManticoreBackup::run('store', [$client, $storage, $payload->tables]);
 				// TODO: make standard response interface
 				return new TaskResult(
 					[[
@@ -77,7 +77,7 @@ class Executor extends BaseExecutor {
 					]
 				);
 			},
-			[$this->request]
+			[$this->payload]
 		);
 
 		return $task->run();

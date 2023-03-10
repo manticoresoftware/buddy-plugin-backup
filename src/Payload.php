@@ -12,14 +12,14 @@
 namespace Manticoresearch\Buddy\Plugin\Backup;
 
 use Manticoresearch\Buddy\Core\Error\QueryParseError;
-use Manticoresearch\Buddy\Core\Network\Request as NetworkRequest;
-use Manticoresearch\Buddy\Core\Plugin\Request as BaseRequest;
+use Manticoresearch\Buddy\Core\Network\Request;
+use Manticoresearch\Buddy\Core\Plugin\BasePayload;
 use RuntimeException;
 
 /**
  * Request for Backup command that has parsed parameters from SQL
  */
-final class Request extends BaseRequest {
+final class Payload extends BasePayload {
 	const OPTIONS = [
 		'async' => 'bool',
 		'compress' => 'bool',
@@ -51,12 +51,12 @@ final class Request extends BaseRequest {
   /**
    * Create instance by parsing query into parameters
    *
-   * @param NetworkRequest $request
+   * @param Request $request
    *  The query itself without command prefix already
    * @return static
    * @throws QueryParseError
    */
-	public static function fromNetworkRequest(NetworkRequest $request): static {
+	public static function fromRequest(Request $request): static {
 		$query = $request->payload;
 		$whatPattern = '(?:TABLES?\s*(?P<table>(,?\s*[\w]+\s*)+))';
 		$toPattern = 'TO\s*(?P<path>(\'[^\']+\'|[\._\-a-z\/0-9]+|'
@@ -94,7 +94,7 @@ final class Request extends BaseRequest {
 			) : []
 		;
 
-		$self = new Request(
+		$self = new static(
 			path: $path,
 			tables: $tables,
 			options: $options
@@ -230,10 +230,10 @@ final class Request extends BaseRequest {
 	}
 
 	/**
-	 * @param NetworkRequest $request
+	 * @param Request $request
 	 * @return bool
 	 */
-	public static function hasMatch(NetworkRequest $request): bool {
+	public static function hasMatch(Request $request): bool {
 		return stripos($request->payload, 'backup') === 0;
 	}
 }
