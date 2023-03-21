@@ -55,10 +55,13 @@ class Handler extends BaseHandler {
 					$payload->path,
 					$payload->options['compress'] ?? false
 				);
-				ManticoreBackup::run('store', [$client, $storage, $payload->tables]);;
-				return TaskResult::withRow([
-					'Path' => $storage->getBackupPaths()['root'],
-				])->column('Path', Column::String);
+				ManticoreBackup::run('store', [$client, $storage, $payload->tables]);
+				;
+				return TaskResult::withRow(
+					[
+						'Path' => $storage->getBackupPaths()['root'],
+					]
+				)->column('Path', Column::String);
 			},
 			[$this->payload]
 		);
