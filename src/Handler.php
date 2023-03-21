@@ -16,6 +16,7 @@ use Manticoresearch\Backup\Lib\ManticoreBackup;
 use Manticoresearch\Backup\Lib\ManticoreClient;
 use Manticoresearch\Backup\Lib\ManticoreConfig;
 use Manticoresearch\Buddy\Core\Plugin\BaseHandler;
+use Manticoresearch\Buddy\Core\Task\Column;
 use Manticoresearch\Buddy\Core\Task\Task;
 use Manticoresearch\Buddy\Core\Task\TaskResult;
 use parallel\Runtime;
@@ -54,28 +55,10 @@ class Handler extends BaseHandler {
 					$payload->path,
 					$payload->options['compress'] ?? false
 				);
-				ManticoreBackup::run('store', [$client, $storage, $payload->tables]);
-				// TODO: make standard response interface
-				return new TaskResult(
-					[[
-						'total' => 1,
-						'error' => '',
-						'warning' => '',
-						'columns' => [
-							[
-								'Path' => [
-									'type' => 'string',
-								],
-							],
-						],
-						'data' => [
-							[
-								'Path' => $storage->getBackupPaths()['root'],
-							],
-						],
-					],
-					]
-				);
+				ManticoreBackup::run('store', [$client, $storage, $payload->tables]);;
+				return TaskResult::withRow([
+					'Path' => $storage->getBackupPaths()['root'],
+				])->column('Path', Column::String);
 			},
 			[$this->payload]
 		);
