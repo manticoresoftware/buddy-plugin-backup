@@ -56,6 +56,7 @@ jobs:
 
             searchd
             bin/test
+
   codestyle:
     name: PHPCS validation
     runs-on: ubuntu-22.04
