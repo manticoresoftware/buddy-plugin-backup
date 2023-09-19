@@ -16,7 +16,7 @@
 	],
 	"minimum-stability": "stable",
 	"require": {
-    "manticoresoftware/manticoresearch-backup": "^0.5.11",
+    "manticoresoftware/manticoresearch-backup": "^1.0.7",
 		"manticoresoftware/buddy-core": "dev-main"
   },
 	"require-dev": {
