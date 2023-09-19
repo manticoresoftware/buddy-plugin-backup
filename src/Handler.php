@@ -48,7 +48,10 @@ class Handler extends BaseHandler {
 
 		$task = Task::$method(
 			$runtime,
-			static function (Payload $payload): TaskResult {
+			static function (string $args): TaskResult {
+				/** @var Payload $payload */
+				/** @phpstan-ignore-next-line */
+				[$payload] = unserialize($args);
 				$config = new ManticoreConfig($payload->configPath);
 				$client = new ManticoreClient($config);
 				$storage = new FileStorage(
@@ -63,7 +66,7 @@ class Handler extends BaseHandler {
 					]
 				)->column('Path', Column::String);
 			},
-			[$this->payload]
+			[serialize([$this->payload])]
 		);
 
 		return $task->run();
