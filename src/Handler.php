@@ -19,7 +19,6 @@ use Manticoresearch\Buddy\Core\Plugin\BaseHandler;
 use Manticoresearch\Buddy\Core\Task\Column;
 use Manticoresearch\Buddy\Core\Task\Task;
 use Manticoresearch\Buddy\Core\Task\TaskResult;
-use parallel\Runtime;
 
 /**
  * This is the class to handle BACKUP ... SQL command
@@ -37,17 +36,13 @@ class Handler extends BaseHandler {
   /**
    * Process the request and return self for chaining
    *
-	 * @param Runtime $runtime
    * @return Task
    */
-	public function run(Runtime $runtime): Task {
+	public function run(): Task {
 		// We run in a thread anyway but in case if we need blocking
 		// We just waiting for a thread to be done
 		$isAsync = $this->payload->options['async'] ?? false;
-		$method = $isAsync ? 'deferInRuntime' : 'createInRuntime';
-
-		$task = Task::$method(
-			$runtime,
+		$task = Task::create(
 			static function (string $args): TaskResult {
 				/** @var Payload $payload */
 				/** @phpstan-ignore-next-line */
@@ -68,7 +63,9 @@ class Handler extends BaseHandler {
 			},
 			[serialize([$this->payload])]
 		);
-
+		if ($isAsync) {
+			$task->defer();
+		}
 		return $task->run();
 	}
 

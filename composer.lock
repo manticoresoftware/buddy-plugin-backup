@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9f6ea9c4a0b613ab7a6369cea711c8a",
+    "content-hash": "613ae28e8dbbe3ea566292aa3967e9ca",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -708,16 +708,16 @@
         },
         {
             "name": "manticoresoftware/buddy-core",
-            "version": "v0.1.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/manticoresoftware/buddy-core.git",
-                "reference": "0ec2ea462555d31f732939fa5ed1ebfc4c28b2b3"
+                "reference": "822d7c4710aa2dc8bbf8bfba43ac42d61955092c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/manticoresoftware/buddy-core/zipball/0ec2ea462555d31f732939fa5ed1ebfc4c28b2b3",
-                "reference": "0ec2ea462555d31f732939fa5ed1ebfc4c28b2b3",
+                "url": "https://api.github.com/repos/manticoresoftware/buddy-core/zipball/822d7c4710aa2dc8bbf8bfba43ac42d61955092c",
+                "reference": "822d7c4710aa2dc8bbf8bfba43ac42d61955092c",
                 "shasum": ""
             },
             "require": {
@@ -732,6 +732,7 @@
                 "slevomat/coding-standard": "^8.5",
                 "squizlabs/php_codesniffer": "^3.7"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -752,9 +753,9 @@
             "description": "The Buddy Core to develop your own plugin for Manticore Search",
             "support": {
                 "issues": "https://github.com/manticoresoftware/buddy-core/issues",
-                "source": "https://github.com/manticoresoftware/buddy-core/tree/v0.1.0"
+                "source": "https://github.com/manticoresoftware/buddy-core/tree/main"
             },
-            "time": "2023-09-19T08:31:13+00:00"
+            "time": "2023-10-18T07:51:34+00:00"
         },
         {
             "name": "manticoresoftware/manticoresearch-backup",
@@ -2988,16 +2989,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.38",
+            "version": "1.10.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "5302bb402c57f00fb3c2c015bac86e0827e4b691"
+                "reference": "d9dedb0413f678b4d03cbc2279a48f91592c97c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/5302bb402c57f00fb3c2c015bac86e0827e4b691",
-                "reference": "5302bb402c57f00fb3c2c015bac86e0827e4b691",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d9dedb0413f678b4d03cbc2279a48f91592c97c4",
+                "reference": "d9dedb0413f678b4d03cbc2279a48f91592c97c4",
                 "shasum": ""
             },
             "require": {
@@ -3046,7 +3047,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-06T14:19:14+00:00"
+            "time": "2023-10-17T15:46:26+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4609,7 +4610,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "manticoresoftware/buddy-core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
