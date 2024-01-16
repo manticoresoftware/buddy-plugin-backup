@@ -712,12 +712,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/manticoresoftware/buddy-core.git",
-                "reference": "d9a2bd1c30c617e07be21688a7f945e9cf86dd05"
+                "reference": "a8db5d168a351667cc6c3040cffa3d397560c13b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/manticoresoftware/buddy-core/zipball/d9a2bd1c30c617e07be21688a7f945e9cf86dd05",
-                "reference": "d9a2bd1c30c617e07be21688a7f945e9cf86dd05",
+                "url": "https://api.github.com/repos/manticoresoftware/buddy-core/zipball/a8db5d168a351667cc6c3040cffa3d397560c13b",
+                "reference": "a8db5d168a351667cc6c3040cffa3d397560c13b",
                 "shasum": ""
             },
             "require": {
@@ -755,20 +755,20 @@
                 "issues": "https://github.com/manticoresoftware/buddy-core/issues",
                 "source": "https://github.com/manticoresoftware/buddy-core/tree/main"
             },
-            "time": "2024-01-08T12:46:56+00:00"
+            "time": "2024-01-16T06:46:18+00:00"
         },
         {
             "name": "manticoresoftware/manticoresearch-backup",
-            "version": "v1.3.3",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/manticoresoftware/manticoresearch-backup.git",
-                "reference": "6590cf0fcf81677d33b5e6dfbf16deb96b74c156"
+                "reference": "e7dfee5d5ee31a599ca5fb42cceb256098482b7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/manticoresoftware/manticoresearch-backup/zipball/6590cf0fcf81677d33b5e6dfbf16deb96b74c156",
-                "reference": "6590cf0fcf81677d33b5e6dfbf16deb96b74c156",
+                "url": "https://api.github.com/repos/manticoresoftware/manticoresearch-backup/zipball/e7dfee5d5ee31a599ca5fb42cceb256098482b7c",
+                "reference": "e7dfee5d5ee31a599ca5fb42cceb256098482b7c",
                 "shasum": ""
             },
             "require": {
@@ -792,7 +792,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -808,9 +808,9 @@
             ],
             "support": {
                 "issues": "https://github.com/manticoresoftware/manticoresearch-backup/issues",
-                "source": "https://github.com/manticoresoftware/manticoresearch-backup/tree/v1.3.3"
+                "source": "https://github.com/manticoresoftware/manticoresearch-backup/tree/v1.3.5"
             },
-            "time": "2023-12-07T03:39:32+00:00"
+            "time": "2024-01-12T17:55:20+00:00"
         },
         {
             "name": "manticoresoftware/openmetrics",
@@ -2995,16 +2995,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.55",
+            "version": "1.10.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "9a88f9d18ddf4cf54c922fbeac16c4cb164c5949"
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9a88f9d18ddf4cf54c922fbeac16c4cb164c5949",
-                "reference": "9a88f9d18ddf4cf54c922fbeac16c4cb164c5949",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/27816a01aea996191ee14d010f325434c0ee76fa",
+                "reference": "27816a01aea996191ee14d010f325434c0ee76fa",
                 "shasum": ""
             },
             "require": {
@@ -3053,7 +3053,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-08T12:32:40+00:00"
+            "time": "2024-01-15T10:43:00+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4508,16 +4508,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.8.0",
+            "version": "3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "5805f7a4e4958dbb5e944ef1e6edae0a303765e7"
+                "reference": "14f5fff1e64118595db5408e946f3a22c75807f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/5805f7a4e4958dbb5e944ef1e6edae0a303765e7",
-                "reference": "5805f7a4e4958dbb5e944ef1e6edae0a303765e7",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/14f5fff1e64118595db5408e946f3a22c75807f7",
+                "reference": "14f5fff1e64118595db5408e946f3a22c75807f7",
                 "shasum": ""
             },
             "require": {
@@ -4527,11 +4527,11 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4"
             },
             "bin": [
-                "bin/phpcs",
-                "bin/phpcbf"
+                "bin/phpcbf",
+                "bin/phpcs"
             ],
             "type": "library",
             "extra": {
@@ -4584,7 +4584,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-12-08T12:32:31+00:00"
+            "time": "2024-01-11T20:47:48+00:00"
         },
         {
             "name": "theseer/tokenizer",
